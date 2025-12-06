@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import heroImage from "../../assets/Återuppliva huden efter vintern_ En komplett rutin för vårhud.jpg";
 
 export function Hero() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/src/assets/Återuppliva huden efter vintern_ En komplett rutin för vårhud.jpg"
+          src={heroImage}
           alt="Beauty cosmetics hero"
           className="w-full h-full object-cover"
         />

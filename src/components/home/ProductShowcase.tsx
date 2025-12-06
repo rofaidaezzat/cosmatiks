@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Heart, Eye, BarChart } from "lucide-react";
+import img1 from "../../assets/65330366e9d2ee118d7acd6a933e0293.jpg";
+import img2 from "../../assets/14f7f9257bae0c720cedb764146f9cff.jpg";
 
 interface Product {
   id: number;
@@ -20,7 +22,7 @@ const ProductShowcase = () => {
     {
       id: 1,
       name: "Laneige Lip Sleeping Mask Nuit Pure 20g",
-      image: "/src/assets/65330366e9d2ee118d7acd6a933e0293.jpg",
+      image: img1,
       price: 249,
       originalPrice: 299,
       discount: 17,
@@ -30,21 +32,21 @@ const ProductShowcase = () => {
     {
       id: 2,
       name: "Ascorbic Acid 8% + Alpha Arbutin 2% 30ml",
-      image: "/src/assets/14f7f9257bae0c720cedb764146f9cff.jpg",
+      image: img2,
       price: 200,
       rating: 4,
     },
     {
       id: 3,
       name: "Ceo Afterglow Brightening Vitamin C Cream",
-      image: "/src/assets/65330366e9d2ee118d7acd6a933e0293.jpg",
+      image: img1,
       price: 199,
       rating: 5,
     },
     {
       id: 4,
       name: "Granactive Retinoid 2% In Squalane 30ml",
-      image: "/src/assets/14f7f9257bae0c720cedb764146f9cff.jpg",
+      image: img2,
       price: 199,
       originalPrice: 249,
       discount: 12,
@@ -53,7 +55,7 @@ const ProductShowcase = () => {
     {
       id: 5,
       name: "Charlotte Tilbury Magic Skin Duo",
-      image: "/src/assets/65330366e9d2ee118d7acd6a933e0293.jpg",
+      image: img1,
       price: 69,
       originalPrice: 71,
       discount: 31,

@@ -7,6 +7,10 @@ import {
   Eye,
 } from "lucide-react";
 import { useState } from "react";
+import img1 from "../../assets/da852720586700f5548eb4c50b55c8fe.jpg";
+import img2 from "../../assets/680d5c717c4f11943420d79b1387b6c0.jpg";
+import img3 from "../../assets/5f65cf6e3b041c144505740e960c2be9.jpg";
+import img4 from "../../assets/604d618118094a2132099c4924b50f2c.jpg";
 
 interface Product {
   id: number;
@@ -35,7 +39,7 @@ export function NewCollectionSection() {
       price: 249,
       originalPrice: 299,
       discount: 17,
-      image: "/src/assets/da852720586700f5548eb4c50b55c8fe.jpg",
+      image: img1,
       rating: 5,
       countdown: { days: 79, hours: 5, minutes: 50, seconds: 45 },
     },
@@ -43,7 +47,7 @@ export function NewCollectionSection() {
       id: 2,
       name: "Ceo Afterglow Brightening Vitamin C Cream",
       price: 199,
-      image: "/src/assets/680d5c717c4f11943420d79b1387b6c0.jpg",
+      image: img2,
       rating: 5,
       countdown: { days: 24, hours: 57, minutes: 0, seconds: 0 },
     },
@@ -53,14 +57,14 @@ export function NewCollectionSection() {
       price: 199,
       originalPrice: 249,
       discount: 17,
-      image: "/src/assets/5f65cf6e3b041c144505740e960c2be9.jpg",
+      image: img3,
       rating: 5,
     },
     {
       id: 4,
       name: "Overnight Glow Dark Spot Sleeping Cream 50ml",
       price: 89,
-      image: "/src/assets/604d618118094a2132099c4924b50f2c.jpg",
+      image: img4,
       rating: 5,
     },
   ];

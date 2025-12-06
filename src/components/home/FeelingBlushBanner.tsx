@@ -1,10 +1,12 @@
+import bannerImage from "../../assets/d22cfe54abaefd314a1bb3db3f6b8ef2.jpg";
+
 export function FeelingBlushBanner() {
   return (
     <section className="relative m-14 h-[600px] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/src/assets/d22cfe54abaefd314a1bb3db3f6b8ef2.jpg"
+          src={bannerImage}
           alt="Feeling Blush Huda Beauty"
           className="w-full h-full object-cover"
         />

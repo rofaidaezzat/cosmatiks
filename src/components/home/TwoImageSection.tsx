@@ -1,3 +1,6 @@
+import img1 from "../../assets/4a89fb7260da5fbfe8028b0704511d2c.jpg";
+import img2 from "../../assets/67bafc261a12b312b9454bfef82f6849.jpg";
+
 export function TwoImageSection() {
   return (
     <section className="py-8 px-4 mx-10">
@@ -6,7 +9,7 @@ export function TwoImageSection() {
           {/* Left Image - Shield and Shine */}
           <div className="relative overflow-hidden group h-[400px]">
             <img
-              src="/src/assets/4a89fb7260da5fbfe8028b0704511d2c.jpg"
+              src={img1}
               alt="Shield and Shine"
               className="w-full h-full object-cover"
             />
@@ -32,7 +35,7 @@ export function TwoImageSection() {
           {/* Right Image - Someone Special */}
           <div className="relative overflow-hidden group h-[400px]">
             <img
-              src="/src/assets/67bafc261a12b312b9454bfef82f6849.jpg"
+              src={img2}
               alt="Someone Special"
               className="w-full h-full object-cover"
             />

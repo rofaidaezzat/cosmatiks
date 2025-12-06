@@ -6,6 +6,10 @@ import {
   Eye,
 } from "lucide-react";
 import { useState } from "react";
+import img1 from "../../assets/da852720586700f5548eb4c50b55c8fe.jpg";
+import img2 from "../../assets/680d5c717c4f11943420d79b1387b6c0.jpg";
+import img3 from "../../assets/5f65cf6e3b041c144505740e960c2be9.jpg";
+import img4 from "../../assets/604d618118094a2132099c4924b50f2c.jpg";
 
 interface Product {
   id: number;
@@ -34,7 +38,7 @@ export function BeautyForEveryStory() {
       price: 249,
       originalPrice: 299,
       discount: 17,
-      image: "/src/assets/da852720586700f5548eb4c50b55c8fe.jpg",
+      image: img1,
       rating: 5,
       countdown: { days: 79, hours: 5, minutes: 0, seconds: 35 },
     },
@@ -44,7 +48,7 @@ export function BeautyForEveryStory() {
       price: 249,
       originalPrice: 300,
       discount: 17,
-      image: "/src/assets/680d5c717c4f11943420d79b1387b6c0.jpg",
+      image: img2,
       rating: 5,
       countdown: { days: 78, hours: 24, minutes: 0, seconds: 35 },
     },
@@ -53,14 +57,14 @@ export function BeautyForEveryStory() {
       name: "Glycolic Acid 7% Toning Solution 240ml",
       price: 13,
       originalPrice: 9,
-      image: "/src/assets/5f65cf6e3b041c144505740e960c2be9.jpg",
+      image: img3,
       rating: 4,
     },
     {
       id: 4,
       name: "Moon Fruit 1% Bakuchiol Alternative Serum",
       price: 300,
-      image: "/src/assets/604d618118094a2132099c4924b50f2c.jpg",
+      image: img4,
       rating: 4,
     },
     {
@@ -68,7 +72,7 @@ export function BeautyForEveryStory() {
       name: "Overnight Glow Dark Spot Sleeping Cream 50ml",
       price: 140,
       originalPrice: 120,
-      image: "/src/assets/604d618118094a2132099c4924b50f2c.jpg",
+      image: img4,
       rating: 5,
     },
   ];

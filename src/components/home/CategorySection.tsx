@@ -1,34 +1,37 @@
+import img1 from "../../assets/65330366e9d2ee118d7acd6a933e0293.jpg";
+import img2 from "../../assets/14f7f9257bae0c720cedb764146f9cff.jpg";
+
 const CategorySection = () => {
   const categories = [
     {
       id: 1,
       name: 'Foundation',
-      image: '/src/assets/65330366e9d2ee118d7acd6a933e0293.jpg',
+      image: img1,
     },
     {
       id: 2,
       name: 'Creams',
-      image: '/src/assets/14f7f9257bae0c720cedb764146f9cff.jpg',
+      image: img2,
     },
     {
       id: 3,
       name: 'Cosmeceutical',
-      image: '/src/assets/65330366e9d2ee118d7acd6a933e0293.jpg',
+      image: img1,
     },
     {
       id: 4,
       name: 'Exfoliating',
-      image: '/src/assets/14f7f9257bae0c720cedb764146f9cff.jpg',
+      image: img2,
     },
     {
       id: 5,
       name: 'Emollients',
-      image: '/src/assets/65330366e9d2ee118d7acd6a933e0293.jpg',
+      image: img1,
     },
     {
       id: 6,
       name: 'Retinoids',
-      image: '/src/assets/14f7f9257bae0c720cedb764146f9cff.jpg',
+      image: img2,
     },
   ];
 
