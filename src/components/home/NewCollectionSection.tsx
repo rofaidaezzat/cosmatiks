@@ -25,7 +25,7 @@ interface Product {
 }
 
 export function NewCollectionSection() {
-  const [CurrentIndex, setCurrentIndex] = useState(0);
+  const [, setCurrentIndex] = useState(0);
 
   // Sample products - replace with your actual product data
   const products: Product[] = [

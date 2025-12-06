@@ -13,7 +13,7 @@ interface Product {
 }
 
 const ProductShowcase = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [, setCurrentIndex] = useState(0);
   const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
 
   const products: Product[] = [

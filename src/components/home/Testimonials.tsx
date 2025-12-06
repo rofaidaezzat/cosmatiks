@@ -12,7 +12,7 @@ interface Testimonial {
 }
 
 export function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex] = useState(0);
 
   const testimonials: Testimonial[] = [
     {

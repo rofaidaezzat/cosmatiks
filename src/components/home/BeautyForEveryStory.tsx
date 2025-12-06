@@ -24,7 +24,7 @@ interface Product {
 }
 
 export function BeautyForEveryStory() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [, setCurrentIndex] = useState(0);
 
   // Sample products - replace with your actual product data
   const products: Product[] = [
