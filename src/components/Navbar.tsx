@@ -79,7 +79,7 @@ function Navbar({ onNavigate, currentPage }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
         {/* Top Bar */}
         <div className="flex items-center justify-between py-3 md:py-4">
           <button
@@ -234,17 +234,26 @@ function Navbar({ onNavigate, currentPage }: HeaderProps) {
             <div className="flex flex-col space-y-4">
               {/* Shop */}
               <div className="border-b border-gray-200 pb-4">
-                <button
-                  onClick={handleShopClick}
-                  className="w-full flex items-center justify-between text-left hover:text-rose-600 transition-colors"
-                >
-                  <span className="font-medium">Shop</span>
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
-                      isShopMenuOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
+                <div className="flex items-center justify-between">
+                  <Link
+                    to="/shop"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex-1 font-medium hover:text-rose-600 transition-colors py-2"
+                  >
+                    Shop
+                  </Link>
+                  <button
+                    onClick={handleShopClick}
+                    className="p-2 hover:bg-gray-100 rounded transition-colors"
+                    aria-label="Toggle shop menu"
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        isShopMenuOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
                 {isShopMenuOpen && (
                   <div className="mt-2 ml-4">
                     <ShopMegaMenu

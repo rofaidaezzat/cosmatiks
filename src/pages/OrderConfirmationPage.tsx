@@ -1,4 +1,5 @@
-import { CheckCircle, Package, Mail, MapPin, CreditCard } from "lucide-react";
+import { CheckCircle, Package, Mail, MapPin, CreditCard, Truck, ArrowRight, HelpCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function OrderConfirmationPage() {
   const orderDetails = {
@@ -38,88 +39,100 @@ export function OrderConfirmationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-rose-50 via-white to-gray-50">
       {/* Success Header */}
-      <div className="bg-white border-b">
-        <div className="container mx-auto px-4 py-12">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-12 h-12 text-green-600" />
+      <div className="bg-gradient-to-r from-green-50 via-emerald-50 to-green-100 border-b border-green-200">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-12">
+          <div className="max-w-3xl mx-auto text-center animate-fade-in">
+            <div className="relative inline-block mb-6">
+              <div className="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto shadow-2xl animate-bounce">
+                <CheckCircle className="w-14 h-14 md:w-16 md:h-16 text-white" />
+              </div>
+              <div className="absolute -top-2 -right-2 w-8 h-8 bg-rose-500 rounded-full animate-ping"></div>
             </div>
-            <h1 className="text-4xl mb-4">Order Confirmed!</h1>
-            <p className="text-xl text-gray-600 mb-6">
+            <h1 className="text-4xl md:text-5xl font-serif mb-4 text-gray-900">Order Confirmed!</h1>
+            <p className="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl mx-auto">
               Thank you for your order. We've sent a confirmation email to{" "}
-              <span className="text-rose-600">{orderDetails.email}</span>
+              <span className="text-rose-600 font-semibold">{orderDetails.email}</span>
             </p>
-            <div className="flex items-center justify-center gap-2 text-gray-600">
-              <span>Order Number:</span>
-              <span className="text-rose-600">{orderDetails.orderNumber}</span>
+            <div className="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-md border border-green-200">
+              <span className="text-gray-600 font-medium">Order Number:</span>
+              <span className="text-rose-600 font-bold text-lg">{orderDetails.orderNumber}</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-6 md:py-10">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Order Details */}
             <div className="lg:col-span-2 space-y-6">
               {/* Items */}
-              <div className="bg-white p-6">
+              <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-rose-100 animate-fade-in-up">
                 <div className="flex items-center gap-3 mb-6">
-                  <Package className="w-6 h-6 text-rose-600" />
-                  <h2 className="text-2xl">Order Items</h2>
+                  <div className="bg-rose-100 p-2 rounded-lg">
+                    <Package className="w-6 h-6 text-rose-600" />
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-serif text-gray-900">Order Items</h2>
                 </div>
                 <div className="space-y-4">
-                  {orderDetails.items.map((item) => (
+                  {orderDetails.items.map((item, index) => (
                     <div
                       key={item.id}
-                      className="flex gap-4 pb-4 border-b last:border-b-0"
+                      className="flex gap-4 p-4 rounded-lg border border-gray-100 hover:bg-rose-50 hover:border-rose-200 transition-all duration-200"
+                      style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <div className="w-20 h-20 flex-shrink-0">
+                      <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden border border-gray-200">
                         <img
                           src={item.image}
                           alt={item.name}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                         />
                       </div>
-                      <div className="flex-1">
-                        <h3 className="mb-1">{item.name}</h3>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-gray-900 mb-1 hover:text-rose-600 transition-colors">{item.name}</h3>
                         <p className="text-sm text-gray-600">
-                          Quantity: {item.quantity}
+                          Quantity: <span className="font-semibold text-gray-900">{item.quantity}</span>
                         </p>
                       </div>
-                      <span>${(item.price * item.quantity).toFixed(2)}</span>
+                      <span className="text-lg font-bold text-rose-600 flex-shrink-0">
+                        ${(item.price * item.quantity).toFixed(2)}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Shipping Address */}
-              <div className="bg-white p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <MapPin className="w-6 h-6 text-rose-600" />
-                  <h2 className="text-2xl">Shipping Address</h2>
+              <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-rose-100 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="bg-rose-100 p-2 rounded-lg">
+                    <MapPin className="w-6 h-6 text-rose-600" />
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-serif text-gray-900">Shipping Address</h2>
                 </div>
-                <div className="text-gray-600">
-                  <p>{orderDetails.shippingAddress.name}</p>
-                  <p>{orderDetails.shippingAddress.street}</p>
-                  <p>{orderDetails.shippingAddress.city}</p>
-                  <p>{orderDetails.shippingAddress.country}</p>
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 space-y-2">
+                  <p className="font-semibold text-gray-900">{orderDetails.shippingAddress.name}</p>
+                  <p className="text-gray-700">{orderDetails.shippingAddress.street}</p>
+                  <p className="text-gray-700">{orderDetails.shippingAddress.city}</p>
+                  <p className="text-gray-700">{orderDetails.shippingAddress.country}</p>
                 </div>
               </div>
 
               {/* Payment Method */}
-              <div className="bg-white p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <CreditCard className="w-6 h-6 text-rose-600" />
-                  <h2 className="text-2xl">Payment Method</h2>
+              <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-rose-100 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="bg-rose-100 p-2 rounded-lg">
+                    <CreditCard className="w-6 h-6 text-rose-600" />
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-serif text-gray-900">Payment Method</h2>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-8 bg-gray-200 rounded flex items-center justify-center text-xs">
+                <div className="flex items-center gap-4 bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <div className="w-14 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded flex items-center justify-center text-white text-xs font-bold shadow-md">
                     VISA
                   </div>
-                  <span className="text-gray-600">
+                  <span className="text-gray-700 font-medium">
                     {orderDetails.paymentMethod}
                   </span>
                 </div>
@@ -128,101 +141,122 @@ export function OrderConfirmationPage() {
 
             {/* Order Summary */}
             <div className="lg:col-span-1">
-              <div className="bg-white p-6 sticky top-24">
-                <h2 className="text-2xl mb-6">Order Summary</h2>
+              <div className="bg-white p-6 rounded-xl shadow-lg border border-rose-100 sticky top-24 animate-fade-in-up" style={{ animationDelay: "150ms" }}>
+                <h2 className="text-xl md:text-2xl font-serif mb-6 text-gray-900">Order Summary</h2>
 
                 <div className="space-y-3 mb-6">
-                  <div className="flex justify-between text-gray-600">
+                  <div className="flex justify-between text-gray-700">
                     <span>Subtotal</span>
-                    <span>${orderDetails.subtotal.toFixed(2)}</span>
+                    <span className="font-semibold">${orderDetails.subtotal.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-gray-600">
+                  <div className="flex justify-between text-gray-700">
                     <span>Shipping</span>
-                    <span>${orderDetails.shipping.toFixed(2)}</span>
+                    <span className="font-semibold">${orderDetails.shipping.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-gray-600">
+                  <div className="flex justify-between text-gray-700">
                     <span>Tax</span>
-                    <span>${orderDetails.tax.toFixed(2)}</span>
+                    <span className="font-semibold">${orderDetails.tax.toFixed(2)}</span>
                   </div>
                 </div>
 
-                <div className="border-t pt-4 mb-6">
-                  <div className="flex justify-between text-xl">
-                    <span>Total</span>
-                    <span className="text-rose-600">
+                <div className="border-t border-gray-200 pt-4 mb-6">
+                  <div className="flex justify-between text-xl md:text-2xl">
+                    <span className="font-semibold text-gray-900">Total</span>
+                    <span className="font-bold text-rose-600">
                       ${orderDetails.total.toFixed(2)}
                     </span>
                   </div>
                 </div>
 
-                <div className="bg-green-50 p-4 mb-6">
-                  <p className="text-sm text-green-800">
-                    <strong>Estimated Delivery:</strong>
-                    <br />
-                    {orderDetails.estimatedDelivery}
-                  </p>
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 p-5 rounded-lg mb-6">
+                  <div className="flex items-start gap-3">
+                    <Truck className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-semibold text-green-800 mb-1">
+                        Estimated Delivery:
+                      </p>
+                      <p className="text-sm text-green-700">
+                        {orderDetails.estimatedDelivery}
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <button className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3 mb-3 transition-colors">
+                <Link
+                  to="/account"
+                  className="w-full bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white py-4 mb-3 transition-all duration-300 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+                >
+                  <Truck className="w-5 h-5" />
                   Track Your Order
-                </button>
+                </Link>
 
-                <button className="w-full border border-gray-300 hover:border-rose-600 hover:text-rose-600 py-3 transition-colors">
+                <Link
+                  to="/shop"
+                  className="w-full border-2 border-gray-300 hover:border-rose-600 hover:text-rose-600 py-4 transition-all duration-300 font-medium rounded-lg text-center flex items-center justify-center gap-2"
+                >
                   Continue Shopping
-                </button>
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
               </div>
             </div>
           </div>
 
           {/* What's Next */}
-          <div className="bg-white p-8 mt-8">
-            <h2 className="text-2xl mb-6">What Happens Next?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail className="w-8 h-8 text-rose-600" />
+          <div className="bg-white p-8 md:p-10 rounded-xl shadow-lg border border-rose-100 mt-8 animate-fade-in-up" style={{ animationDelay: "400ms" }}>
+            <h2 className="text-2xl md:text-3xl font-serif mb-8 text-center text-gray-900">What Happens Next?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              <div className="text-center p-6 rounded-xl hover:bg-rose-50 transition-all duration-300 transform hover:-translate-y-1 group">
+                <div className="w-20 h-20 bg-gradient-to-br from-rose-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Mail className="w-10 h-10 text-rose-600" />
                 </div>
-                <h3 className="mb-2">Order Confirmation</h3>
-                <p className="text-sm text-gray-600">
+                <h3 className="font-semibold text-lg mb-2 text-gray-900">Order Confirmation</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
                   You'll receive an email confirmation with your order details
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Package className="w-8 h-8 text-rose-600" />
+              <div className="text-center p-6 rounded-xl hover:bg-rose-50 transition-all duration-300 transform hover:-translate-y-1 group">
+                <div className="w-20 h-20 bg-gradient-to-br from-rose-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Package className="w-10 h-10 text-rose-600" />
                 </div>
-                <h3 className="mb-2">Order Processing</h3>
-                <p className="text-sm text-gray-600">
+                <h3 className="font-semibold text-lg mb-2 text-gray-900">Order Processing</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
                   We'll prepare your items for shipment within 1-2 business days
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-rose-600" />
+              <div className="text-center p-6 rounded-xl hover:bg-rose-50 transition-all duration-300 transform hover:-translate-y-1 group">
+                <div className="w-20 h-20 bg-gradient-to-br from-rose-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <CheckCircle className="w-10 h-10 text-rose-600" />
                 </div>
-                <h3 className="mb-2">Delivery</h3>
-                <p className="text-sm text-gray-600">
-                  Your order will arrive at your doorstep within 5-7 business
-                  days
+                <h3 className="font-semibold text-lg mb-2 text-gray-900">Delivery</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Your order will arrive at your doorstep within 5-7 business days
                 </p>
               </div>
             </div>
           </div>
 
           {/* Help Section */}
-          <div className="bg-rose-50 p-8 mt-8 text-center">
-            <h3 className="text-xl mb-4">Need Help with Your Order?</h3>
-            <p className="text-gray-600 mb-6">
-              Our customer service team is here to assist you with any questions
-              or concerns.
+          <div className="bg-gradient-to-r from-rose-50 to-pink-50 p-8 md:p-10 rounded-xl shadow-lg border border-rose-200 mt-8 text-center animate-fade-in-up" style={{ animationDelay: "500ms" }}>
+            <div className="bg-rose-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <HelpCircle className="w-8 h-8 text-rose-600" />
+            </div>
+            <h3 className="text-xl md:text-2xl font-serif mb-4 text-gray-900">Need Help with Your Order?</h3>
+            <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
+              Our customer service team is here to assist you with any questions or concerns.
             </p>
-            <div className="flex gap-4 justify-center">
-              <button className="bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 transition-colors">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/contact"
+                className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white px-8 py-3 transition-all duration-300 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
                 Contact Support
-              </button>
-              <button className="border border-rose-600 text-rose-600 hover:bg-rose-600 hover:text-white px-6 py-3 transition-colors">
+              </Link>
+              <Link
+                to="/faq"
+                className="border-2 border-rose-600 text-rose-600 hover:bg-rose-600 hover:text-white px-8 py-3 transition-all duration-300 font-semibold rounded-lg"
+              >
                 View FAQs
-              </button>
+              </Link>
             </div>
           </div>
         </div>

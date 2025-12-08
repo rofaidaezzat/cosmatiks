@@ -64,7 +64,7 @@ export function ProductDetailPage() {
     <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-4">
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <a href="#" className="hover:text-rose-600">
               Home
@@ -81,7 +81,7 @@ export function ProductDetailPage() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-6 md:py-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Product Images */}
           <div>

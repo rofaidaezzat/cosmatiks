@@ -67,7 +67,7 @@ export function AboutPage() {
 
       {/* Story Section */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-rose-600 tracking-widest mb-4">OUR STORY</p>
             <h2 className="text-4xl mb-6">Where Beauty Meets Nature</h2>
@@ -91,7 +91,7 @@ export function AboutPage() {
 
       {/* Values Section */}
       <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-rose-600 tracking-widest mb-2">OUR VALUES</p>
             <h2 className="text-4xl mb-4">What We Stand For</h2>
@@ -115,7 +115,7 @@ export function AboutPage() {
 
       {/* Stats Section */}
       <section className="py-16 bg-rose-600 text-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-5xl mb-2">50K+</div>
@@ -139,7 +139,7 @@ export function AboutPage() {
 
       {/* Team Section */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-rose-600 tracking-widest mb-2">OUR TEAM</p>
             <h2 className="text-4xl mb-4">Meet The Experts</h2>
@@ -168,7 +168,7 @@ export function AboutPage() {
 
       {/* Lab Section */}
       <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <img
@@ -202,7 +202,7 @@ export function AboutPage() {
 
       {/* CTA Section */}
       <section className="py-20 bg-rose-600 text-white text-center">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <h2 className="text-4xl mb-6">Join Our Beauty Journey</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Experience the difference that natural, premium beauty products can

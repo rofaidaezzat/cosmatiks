@@ -170,18 +170,18 @@ export function ShopPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Page Header */}
-      <div className="bg-gray-50 border-b">
-        <div className="container mx-auto px-4 py-4 md:py-8">
-          <div className="text-center">
-            <p className="text-xs md:text-sm text-gray-600 mb-2">Home / Shop</p>
-            <h1 className="text-2xl md:text-4xl font-serif">Shop</h1>
+      <div className="bg-gradient-to-r from-rose-50 to-pink-50 border-b border-rose-100">
+        <div className="container mx-auto px-4 py-6 md:py-10">
+          <div className="text-center animate-fade-in">
+            <p className="text-xs md:text-sm text-rose-600 mb-2 font-medium tracking-wide">Home / Shop</p>
+            <h1 className="text-3xl md:text-5xl font-serif text-gray-900">Shop</h1>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-4 md:py-8">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-6 md:py-10">
         <div className="flex gap-4 md:gap-8">
           {/* Mobile Filter Button */}
           <button
@@ -223,20 +223,21 @@ export function ShopPage() {
 
               {/* Shop By Categories */}
               <div className="mb-6 md:mb-8">
-                <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-black">
-                  <h3 className="text-base md:text-lg font-semibold">Shop By Categories</h3>
-                  <button className="hidden lg:block">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-rose-600">
+                  <h3 className="text-base md:text-lg font-semibold text-gray-900">Shop By Categories</h3>
+                  <button className="hidden lg:block hover:text-rose-600 transition-colors">
                     <span className="text-xl">−</span>
                   </button>
                 </div>
                 <div className="space-y-2">
-                  {categories.map((category) => (
+                  {categories.map((category, index) => (
                     <div
                       key={category.name}
-                      className="flex items-center justify-between text-sm py-1 cursor-pointer hover:text-orange-500"
+                      className="flex items-center justify-between text-sm py-2 px-2 rounded-md cursor-pointer hover:bg-rose-50 hover:text-rose-600 transition-all duration-200 group"
+                      style={{ animationDelay: `${index * 50}ms` }}
                     >
-                      <span>{category.name}</span>
-                      <span className="text-gray-400">({category.count})</span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-200">{category.name}</span>
+                      <span className="text-gray-400 group-hover:text-rose-500">({category.count})</span>
                     </div>
                   ))}
                 </div>
@@ -244,20 +245,21 @@ export function ShopPage() {
 
               {/* Brands */}
               <div className="mb-6 md:mb-8">
-                <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-black">
-                  <h3 className="text-base md:text-lg font-semibold">Brands</h3>
-                  <button className="hidden lg:block">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-rose-600">
+                  <h3 className="text-base md:text-lg font-semibold text-gray-900">Brands</h3>
+                  <button className="hidden lg:block hover:text-rose-600 transition-colors">
                     <span className="text-xl">−</span>
                   </button>
                 </div>
                 <div className="space-y-2">
-                  {brands.map((brand) => (
+                  {brands.map((brand, index) => (
                     <div
                       key={brand.name}
-                      className="flex items-center justify-between text-sm py-1 cursor-pointer hover:text-orange-500"
+                      className="flex items-center justify-between text-sm py-2 px-2 rounded-md cursor-pointer hover:bg-rose-50 hover:text-rose-600 transition-all duration-200 group"
+                      style={{ animationDelay: `${index * 50}ms` }}
                     >
-                      <span>{brand.name}</span>
-                      <span className="text-gray-400">({brand.count})</span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-200">{brand.name}</span>
+                      <span className="text-gray-400 group-hover:text-rose-500">({brand.count})</span>
                     </div>
                   ))}
                 </div>
@@ -268,19 +270,19 @@ export function ShopPage() {
           {/* Main Content */}
           <div className="flex-1 w-full lg:w-auto">
             {/* Toolbar */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4 md:mb-6 pb-4 border-b">
-              <p className="text-xs sm:text-sm text-gray-600">
-                Showing 1–16 of 24 results
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 md:mb-8 pb-4 border-b border-rose-100">
+              <p className="text-xs sm:text-sm text-gray-600 font-medium">
+                Showing <span className="text-rose-600 font-semibold">1–16</span> of <span className="text-rose-600 font-semibold">24</span> results
               </p>
               <div className="flex items-center gap-2 sm:gap-4">
                 {/* View Toggle */}
-                <div className="flex items-center gap-1 border border-gray-300">
+                <div className="flex items-center gap-1 border border-rose-200 rounded-md overflow-hidden shadow-sm">
                   <button
                     onClick={() => setViewMode("grid")}
-                    className={`p-2 ${
+                    className={`p-2 transition-all duration-200 ${
                       viewMode === "grid"
-                        ? "bg-black text-white"
-                        : "bg-white text-gray-600"
+                        ? "bg-rose-600 text-white shadow-md"
+                        : "bg-white text-gray-600 hover:bg-rose-50"
                     }`}
                     aria-label="Grid view"
                   >
@@ -288,10 +290,10 @@ export function ShopPage() {
                   </button>
                   <button
                     onClick={() => setViewMode("list")}
-                    className={`p-2 ${
+                    className={`p-2 transition-all duration-200 ${
                       viewMode === "list"
-                        ? "bg-black text-white"
-                        : "bg-white text-gray-600"
+                        ? "bg-rose-600 text-white shadow-md"
+                        : "bg-white text-gray-600 hover:bg-rose-50"
                     }`}
                     aria-label="List view"
                   >
@@ -304,7 +306,7 @@ export function ShopPage() {
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="w-full sm:w-auto appearance-none border border-gray-300 px-3 sm:px-4 py-2 pr-8 sm:pr-10 text-xs sm:text-sm focus:outline-none focus:border-gray-400 cursor-pointer"
+                    className="w-full sm:w-auto appearance-none border border-rose-200 rounded-md px-3 sm:px-4 py-2 pr-8 sm:pr-10 text-xs sm:text-sm focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-200 cursor-pointer bg-white shadow-sm hover:border-rose-300 transition-colors"
                   >
                     <option value="default">Default sorting</option>
                     <option value="popularity">Sort by popularity</option>
@@ -313,7 +315,7 @@ export function ShopPage() {
                     <option value="price-low">Sort by price: low to high</option>
                     <option value="price-high">Sort by price: high to low</option>
                   </select>
-                  <ChevronDown className="w-4 h-4 absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-600" />
+                  <ChevronDown className="w-4 h-4 absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 pointer-events-none text-rose-600" />
                 </div>
               </div>
             </div>
@@ -326,8 +328,14 @@ export function ShopPage() {
                   : "grid-cols-1"
               }`}
             >
-              {products.map((product) => (
-                <ProductCard key={product.id} {...product} />
+              {products.map((product, index) => (
+                <div
+                  key={product.id}
+                  className="animate-fade-in-up"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <ProductCard {...product} />
+                </div>
               ))}
             </div>
           </div>
